@@ -1,0 +1,11 @@
+ID,Asset,Threat / abuse case,STRIDE,Likelihood (1-5),Impact (1-5),Score,Priority,Recommended treatment
+R-01,User accounts,Credential stuffing or stolen passwords,Spoofing,4,5,20,Critical,"Adaptive password hashing; MFA; rate limits; breached-password screening"
+R-02,Profile data,Changing an object ID to access another user's record,Tampering,4,5,20,Critical,"Server-side ownership and role checks on every request"
+R-03,Database data,SQL injection through untrusted input,Tampering / Information disclosure,3,5,15,High,"Parameterized queries; input validation; least-privilege DB account"
+R-04,Session cookies,Session theft or fixation,Spoofing,3,5,15,High,"HTTPS; Secure/HttpOnly/SameSite; rotate IDs; expiry and revocation"
+R-05,Application availability,Flooding login or reset endpoints,Denial of service,4,4,16,High,"Per-IP and per-account rate limits; request limits; monitoring"
+R-06,User privacy,Account enumeration through different error messages,Information disclosure,3,3,9,Medium,"Generic responses and similar timing"
+R-07,Password-reset tokens,Reuse or guessing of reset token,Spoofing / Elevation of privilege,3,5,15,High,"High-entropy single-use short-lived tokens; store token hashes"
+R-08,Audit trail,Insufficient logs for sensitive changes,Repudiation,3,3,9,Medium,"Tamper-resistant audit events; timestamp and actor metadata; redact secrets"
+R-09,Admin functions,Normal user gains admin access,Elevation of privilege,2,5,10,High,"Server-controlled roles; deny-by-default; MFA; authorization tests"
+R-10,Application secrets,Secrets committed to public repository,Information disclosure,2,5,10,High,"Secret manager/environment variables; secret scanning; rotate exposed keys"

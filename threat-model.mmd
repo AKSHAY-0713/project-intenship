@@ -1,0 +1,19 @@
+flowchart LR
+    U[User / Browser] -->|HTTPS requests| W[Web Application]
+    W -->|Read / write user data| D[(Database)]
+    W -->|Password reset email| E[Email Provider]
+    O[Operator] -->|MFA-protected admin / deploy access| W
+
+    subgraph TB1[TB1: Internet to application - untrusted input]
+      U
+    end
+    subgraph TB2[TB2: Application to private data store]
+      W
+      D
+    end
+    subgraph TB3[TB3: External service boundary]
+      E
+    end
+    subgraph TB4[TB4: Privileged operator boundary]
+      O
+    end
